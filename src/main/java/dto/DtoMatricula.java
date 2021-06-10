@@ -10,12 +10,12 @@ import model.MatriculaPK;
 public class DtoMatricula {
 	private MatriculaPK matriculaPk;
 	private double nota;
-	private Alumno alumno;
-	private Curso curso;
+	private DtoAlumno alumno;
+	private DtoCurso curso;
 	public DtoMatricula() {
 		super();
 	}
-	public DtoMatricula(MatriculaPK matriculaPk, double nota) {
+	public DtoMatricula(MatriculaPK matriculaPk, double nota, DtoAlumno alumno, DtoCurso curso) {
 		super();
 		this.matriculaPk = matriculaPk;
 		this.nota = nota;
@@ -34,17 +34,19 @@ public class DtoMatricula {
 	public void setNota(double nota) {
 		this.nota = nota;
 	}
-	public Alumno getAlumno() {
+	public DtoAlumno getAlumno() {
 		return alumno;
 	}
-	public void setAlumno(Alumno alumno) {
+	public void setAlumno(DtoAlumno alumno) {
 		this.alumno = alumno;
 	}
-	public Curso getCurso() {
+	public DtoCurso getCurso() {
 		return curso;
 	}
-	public void setCurso(Curso curso) {
+	public void setCurso(DtoCurso curso) {
 		this.curso = curso;
 	}
+	
+	
 	
 }

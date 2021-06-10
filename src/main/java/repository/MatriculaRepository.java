@@ -16,9 +16,12 @@ public interface MatriculaRepository extends JpaRepository <Matricula, Matricula
 	@Query("SELECT a FROM Alumno a WHERE a.matriculas.curso.idCurso=?1")
 	/*/
 	//*
-	@Query("SELECT a FROM Alumno a WHERE a.matriculas IN (SELECT m FROM Matricula m WHERE m.curso.idCurso=?1)")			
+	//@Query("SELECT a FROM Alumno a WHERE a.matriculas IN (SELECT m FROM Matricula m WHERE m.curso.idCurso=?1)")			
 	//*/
+	//	@Query("Select m FROM Matricula m WHERE m.idCurso=?1")
+//	List<Matricula> buscarAlumnosCurso(Integer idCurso);
 	
-	List<Alumno> buscarAlumnosCurso(Integer idCurso);
+	@Query("select m from Matricula m join fetch m.curso c where c.idCurso=?1")
+	List<Matricula> buscarMatriculasCurso(Integer idCurso);
 
 }

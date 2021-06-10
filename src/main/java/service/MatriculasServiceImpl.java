@@ -1,16 +1,15 @@
 package service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dto.DtoAlumno;
-import dto.DtoCurso;
+import dto.DtoMatricula;
+import model.Matricula;
 import repository.MatriculaRepository;
 import util.Utilidades;
+
 @Service
 public class MatriculasServiceImpl implements MatriculasService {
 
@@ -19,13 +18,17 @@ public class MatriculasServiceImpl implements MatriculasService {
 
 	@Override
 
-	public List<DtoAlumno> listadoAlumnos(String idCurso) {
-		
-		return matriculaRep.buscarAlumnosCurso(Integer.parseInt(idCurso))
+	public List<DtoMatricula> listadoMatriculas(String idCurso) {
+		Integer curso=Integer.parseInt(idCurso);
+		List<Matricula> matriculas;
+		matriculas = matriculaRep.buscarMatriculasCurso(curso);
+		for (Matricula m: matriculas) {
+			System.out.println("Service Alumno: " +m.getAlumno().getNombre());			
+		}
+		return matriculas
 				.stream()
-				.map(a->Utilidades.convertirADtoAlumno(a))
+				.map(a->Utilidades.convertirADtoMatricula(a))
 				.collect(Collectors.toList());
 	}
 	
-
 }

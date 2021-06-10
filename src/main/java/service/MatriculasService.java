@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import dto.DtoAlumno;
+import dto.DtoMatricula;
 @Service
 public interface MatriculasService {
-	List<DtoAlumno> listadoAlumnos(String idCurso); 
+	List<DtoMatricula> listadoMatriculas(String idCurso); 
 }

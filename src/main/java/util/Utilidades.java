@@ -26,9 +26,15 @@ public class Utilidades {
 	}
 	
 	public static DtoMatricula convertirADtoMatricula(Matricula matricula) {
-		MatriculaPK matriculaPk= new MatriculaPK(matricula.getAlumno().getNombre(), matricula.getCurso().getIdCurso());
-		return new DtoMatricula(matriculaPk, matricula.getNota());			
+		MatriculaPK matriculaPk= new MatriculaPK(matricula.getAlumno().getNombre(), 
+				matricula.getCurso().getIdCurso());
+
+		DtoMatricula mat=new DtoMatricula(matriculaPk,
+										matricula.getNota(),
+										convertirADtoAlumno(matricula.getAlumno()),
+										convertirADtoCurso(matricula.getCurso())
+				);
+		return mat;
 	}
-	
-	
 }
+	

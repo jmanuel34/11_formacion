@@ -26,8 +26,9 @@ legend{
 		<p>-<a href="altaAlumno">Alta de alumno</a></p>
 		<p>-<a href="altaCurso">Alta de curso</a></p>
 		<p>-<a href="buscarCursosDuracion">Cursos por duración</a></p>
-		<p>-<a href="recuperarCursos">Listado de Cursos</a></p>
-		<p>-<a href="cursos">Listado de alumnos</a></p>
+		<p>-<a href="recuperarCursos">Listado de alumnos</a></p>	
+<!-- 		<p>-<a href="recuperarAlumnosxCurso?idCurso=2">Listado de alumnos</a></p> -->
+<!-- 		<p>-<a href="recuperarCursos">Listado de Cursos</a></p>  -->
 	</fieldset>
 </body>
 </html>

@@ -24,23 +24,19 @@ import javax.persistence.TemporalType;
 @NamedQuery(name="Curso.findByMaxDuracion", query="select c from Curso c where c.duracion<?1")
 public class Curso {
 	
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idCurso;
-
 	@Temporal(TemporalType.DATE)
 	private Date fechaInicio;
-
 	private int duracion;
-
 	private String nombre;
-	
 	@OneToMany(mappedBy="curso")
 	private List<Matricula> matriculas;
 
-	
-
+	public Curso() {
+		super();
+	}
 	public Curso(int idCurso, Date fechaInicio, int duracion, String nombre, List<Matricula> matriculas) {
 		super();
 		this.idCurso = idCurso;
@@ -49,7 +45,6 @@ public class Curso {
 		this.nombre = nombre;
 		this.matriculas = matriculas;
 	}
-
 
 
 	public int getIdCurso() {

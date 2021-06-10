@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = "controller")
+@ComponentScan(basePackages = "controllers")
 public class MvcConfig implements WebMvcConfigurer{
 
 	@Bean
@@ -23,6 +23,7 @@ public class MvcConfig implements WebMvcConfigurer{
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/").setViewName("menu");
+		registry.addViewController("/toMenu").setViewName("menu");
 	    
 	 }
 

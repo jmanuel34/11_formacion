@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="model.Alumno, java.util.List"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +12,10 @@
 	<div class="container">
 		<h1>Listado de cursos</h1>
 
-		<div ng-app="cursosApp" ng-controller="cursosController">
+		<div ng-app="alumnosApp" ng-controller="alumnosController">
 
-			<label>Seleccione el curso:</label><select class="form-control"
+			<label>Seleccione el curso:</label>
+			<select class="form-control"
 				ng-model="cursoSel">
 				<c:forEach var="c" items="${requestScope.cursos}">
 					<option value="${c.idCurso}">${c.nombre}</option>
@@ -21,11 +23,8 @@
 			</select>
 		</div>
 		<br> <br>
-		<button type="button" ng-click="buscarCurso();"
+		<button type="button" ng-click="buscarAlumnosxCurso();"
 			class="btn btn-default btn-primary" style="width: 20%">Consultar</button>
-
-
-
 
 		<div class="container" ng-show="alumnos">
 			<p>Nombre: {{alumnos[0].alumno.usuario}}</p>
@@ -48,7 +47,23 @@
 
 		</div>
 	</div>
+	<script>
+		var app=angular.module("alumnosApp",[]);
+		app.controller("alumnosController",function($scope,$http){
+			var url="recuperarAlumnosxCurso";
+			
+			$scope.buscarAlumnosxCurso=function(){
+				$http.get(url,{params:{idCurso:$scope.cursoSel}})
+				.then(function(res){
+					$scope.alumnos=res.data;
+				});
+			};
+			
+		});
 
+	</script>
+<a href="toMenu">Volver al menú</a>
+<!--  
 	<script>
 		var app = angular.module("cursosApp", []);
 		app.controller("cursosController", function($scope, $http) {
@@ -66,6 +81,6 @@
 
 		});
 	</script>
-
+-->
 </body>
 </html>
