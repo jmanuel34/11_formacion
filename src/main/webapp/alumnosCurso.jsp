@@ -49,17 +49,22 @@
 							<th>Edad</th>
 						</tr>
 					</thead>
-	<!--  				<tr ng-repeat="m in matriculas">
+					<tr ng-repeat="a in matriculas">
+                        <td>{{a.alumno.usuario}}</td>
+                        <td>{{a.alumno.nombre}}</td>
+                        <td>{{a.alumno.email}}</td>
+                        <td>{{a.alumno.edad}}</td>
+                    </tr>
+<!--  	 				<tr ng-repeat="m in matriculas">
 						<td>{{m.alumno.usuario}}</td>
 						<td>{{m.alumno.nombre}}</td>
 						<td>{{m.alumno.email}}</td>
-						<td>{{m.alumno.edad}}</td> -->
-						<tr ng-repeat="a in matriculas.alumno">
+						<td>{{m.alumno.edad}}</td> 
+ 						<tr ng-repeat="a in matriculas.alumno">
 						<td>{{a.usuario}}</td>
 						<td>{{a.nombre}}</td>
 						<td>{{a.email}}</td>
-						<td>{{a.edad}}</td>
-					</tr>
+						<td>{{a.edad}}</td> -->
 					</tr>
 				</table>
 

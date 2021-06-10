@@ -53,7 +53,7 @@ public class FormacionController {
 */
 	@GetMapping(value="recuperarAlumnosxCurso",produces=MediaType.APPLICATION_JSON_VALUE)	
 	public @ResponseBody List<DtoMatricula> recuperarAlumnosPorCurso(@RequestParam("idCurso") String idCurso){
-		System.out.println("Paso de porametro"+ idCurso);
+		System.out.println("Controller Paso de parametro: "+ idCurso);
 		List<DtoMatricula> matriculas;
 		matriculas=mService.listadoMatriculas(idCurso);
 		for (DtoMatricula m: matriculas) {
